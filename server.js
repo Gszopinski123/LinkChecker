@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
 
-
+app.use(express.static('./views'))
 app.set('view engine', 'ejs')
 app.get('/',async(req,res) => {
-    let valid = "no"
+    let valid
     let caveat
+    let link = req.query.link
     console.log(req.query.link)
     await fetch(`http://${req.query.link}`).then(response => {
         console.log("tried the link")
@@ -21,11 +22,12 @@ app.get('/',async(req,res) => {
             caveat = "This is a unsecure link!"
         }).catch(err => {
             console.log("Failed http")
+            valid = "invalid"
         })
     }
     
     console.log("Listening on port 3500!")
-    res.render('index',{valid : valid, caveat: caveat})
+    res.render('index',{link : link,valid : valid, caveat: caveat})
 })
 
 

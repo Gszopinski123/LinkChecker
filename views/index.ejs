@@ -1,14 +1,18 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" src="sytle.css">
+            <link rel="stylesheet" href="./style.css">
         </head>
         <body>
-            <form method="get" action="/">
-                <input type="text" id="link" name="link"></input>
-                <input type="submit" value="Test">
-            </form>
-            <%= locals.valid || "" %>
-            <%= locals.caveat || "" %>
+            <div style="text-align: center;">
+                <h1>Test your links!</h1>
+                <form method="get" action="/">
+                    <input type="text" id="link" name="link"></input>
+                    <input type="submit" value="Test">
+                </form>
+                <%= locals.link || "" %> is
+                <%= locals.valid || "" %>
+                <%= locals.caveat || "" %>
+            </div>
         </body>
     </html>
