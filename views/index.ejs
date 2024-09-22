@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" src="sytle.css">
+        </head>
+        <body>
+            <form method="get" action="/">
+                <input type="text" id="link" name="link"></input>
+                <input type="submit" value="Test">
+            </form>
+            <%= locals.valid || "" %>
+            <%= locals.caveat || "" %>
+        </body>
+    </html>
